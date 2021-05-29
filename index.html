@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Bildirim</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script>
+        $(document).ready(setInterval(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'denetle.php',
+                    data: 'alert=',
+                    cache: false,
+                    success: function(msg) {
+                        $('#alertbox').fadeIn('slow').prepend(msg);
+                        $('#alerts').delay(8000).fadeOut('slow');
+                    }
+                });
+            },
+            10000));
+    </script>
+    <style>
+        #alerts:hover {
+            background-color: #C6D3EC;
+        }
+        
+        #alerts {
+            font-family: Tahoma, Geneva, sans-serif;
+            color: #000;
+            font-size: 11px;
+            margin: 5px;
+            padding: 4px;
+            border: solid #9dabc9 1px;
+            width: 250px;
+            height: 80px;
+            border-radius: 5px;
+            background-color: #e2e7ee
+        }
+        
+        #alerts li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            cursor: pointer;
+        }
+        
+        #alertbox {
+            position: fixed;
+            width: 250px;
+            height: auto;
+            left: 100px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h2>Bildirim Demo</h2>
+    </center>
+    <br />
+    <center><a href="https://github.com/ismailozcelik1494/Php-ile-Notification-yapimi" target="_blank">İsmail Özçelik Github Konuya Git</a></center>
+    <br />
+    <div id="alertbox"> </div>
+</body>
+
+</html>
